@@ -1,0 +1,28 @@
+{
+  "name": "sls-secrets-manager",
+  "version": "1.0.0",
+  "description": "Learning about using SSM parameter store and Secrets manager with serverless framework",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickyiliwang/sls-secrets-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickyiliwang/sls-secrets-manager/issues"
+  },
+  "homepage": "https://github.com/nickyiliwang/sls-secrets-manager#readme",
+  "devDependencies": {
+    "serverless-offline": "^8.8.0",
+    "serverless-offline-ssm": "^6.2.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1146.0",
+    "serverless-webpack": "^5.7.1"
+  }
+}

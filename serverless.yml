@@ -4,11 +4,35 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs14.x
+  profile: iamadmin
 
 functions:
-  hello:
-    handler: handler.hello
+  paramStore:
+    handler: index.handler
+    environment:
+      SECRET: ${ssm:/key}
+      HOME: ${ssm:/home/key}
     events:
       - httpApi:
           path: /
           method: get
+
+  secretStore:
+    handler: secret.handler
+    environment:
+      SECRET: ${self:custom.supersecret.password}
+    events:
+      - httpApi:
+          path: /s
+          method: get
+
+plugins:
+    - serverless-webpack
+    - serverless-offline
+package:
+    individually: true
+
+custom:
+  # secretsmanager comes in an object
+  # {password: asd123asd123}
+  supersecret: ${ssm:/aws/reference/secretsmanager/password}
